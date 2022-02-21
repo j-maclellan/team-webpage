@@ -1,2 +1,4 @@
-const Employee = require("./lib/Employee");
+const Start = require("./lib/start");
+
+new Start().userInput();
 
