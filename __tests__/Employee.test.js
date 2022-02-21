@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee");
 jest.mock("../lib/Employee");
 
 test("creates a new player object", () => {
-    const employee = new Employee("Steve");
+    const employee = new Employee("");
 
     expect(employee.name).toBe("Steve");
     expect(employee.id).toEqual(expect.any(Number));
