@@ -30,17 +30,6 @@ function addEmployee() {
                     console.log("running HTML");
                 }
             })
-            // .then(answers => {
-            //     if (answers.value = "Intern") {
-            //         console.log("adding an intern to team");
-            //         getIntern();
-            //     } else if (answers.value = "Engineer") {
-            //         console.log("adding an engineer to the team")
-            //         getEngineer();
-            //     } else {
-            //         console.log("running team HTML!");
-            //     }
-            // })
 }
 function getManager() {
     return inquirer
