@@ -1,6 +1,5 @@
 // create HTML for each employee
-const employeeElement = employeeData => {
-    const { name, id, email, role, } = employeeData;
+function generatePage(employeeArray){
     return `
         <DOCTYPE html>
         <html lang="en>
@@ -18,11 +17,27 @@ const employeeElement = employeeData => {
                     <h1 class="text-secondary bg-dark">My Team</h1>
             </header>
             <main class="container">
-                <h2 class="employee-item-name text-light>${name}</h2>
-                <h3 class="employee-item-role text-light">${role}</h3>
+                <h2 class="employee-item-name text-light>${this.manager.name}</h2>
+                <h3 class="employee-item-role text-light">${this.manager.role}</h3>
                     <div class="container">
-                        <p>ID: ${id}</p>
-                        <p>Email: <a href="${email}"</a></p>
+                        <p>ID: ${this.manager.id}</p>
+                        <p>Email: <a href="${this.manager.email}"</a></p>
+                        <p>Office #: ${this.manager.office}</p>
+                    </div>
+
+                <h2 class="employee-item-name text-light>${this.intern.name}</h2>
+                <h3 class="employee-item-role text-light">${this.intern.role}</h3>
+                    <div class="container">
+                        <p>ID: ${this.intern.id}</p>
+                        <p>Email: <a href="${this.intern.email}"</a></p>
+                        <p>School: ${this.intern.school}</p>
+                    </div>
+                <h2 class="employee-item-name text-light>${this.engineer.name}</h2>
+                <h3 class="employee-item-role text-light">${this.engineer.role}</h3>
+                    <div class="container">
+                        <p>ID: ${this.engineer.id}</p>
+                        <p>Email: <a href="${this.engineer.email}"</a></p>
+                        <p>GitHub: ${this.engineer.github}</p>
                     </div>
             </main>
         </body>
@@ -31,4 +46,4 @@ const employeeElement = employeeData => {
         
 }
 
-module.exports = employeeElement;
+module.exports = generatePage;

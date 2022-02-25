@@ -7,6 +7,9 @@ const generatePage = require("./src/page-template");
 const { writeHTML, copyCSS } = require("./src/generate-site");
 
 function Start() {
+    this.employeeArray = [];
+    this.interns = [];
+    this.engineers = [];
     console.log(`This is the start of the application!`);
     getManager();
 };
@@ -21,16 +24,20 @@ function addEmployee() {
             })
             .then(({ action }) => {
                 if (action === "Intern") {
-                    console.log("enter intern info");
+                    console.log("_______________");
                     getIntern();
                 } else if (action === "Engineer") {
-                    console.log("enter engineer info");
+                    console.log("_______________");
                     getEngineer();
                 } else {
-                    console.log("running HTML");
+                    console.log("_______________");
+                    this.employeeArray.push(this.interns, this.engineers);
+                    
+                    console.log(generatePage(employeeArray));
                 }
             })
 }
+
 function getManager() {
     return inquirer
         .prompt([
@@ -59,7 +66,9 @@ function getManager() {
                 // destructure
                 const { name, id, email, office } = answers
                 this.manager = new Manager(name, id, email, office);
-                console.log(this.manager.getDescription());
+                this.employeeArray.push(this.manager);
+                console.log(this.manager.getRole());
+                console.log(employeeArray);
                 addEmployee();
             });
 }
@@ -91,7 +100,9 @@ function getIntern() {
                     // destructure
                     const { name, id, email, school } = answers
                     this.intern = new Intern(name, id, email, school);
-                    console.log(this.intern.getDescription());
+                    this.interns.push(this.intern);
+                    console.log(this.intern.getRole());
+                    console.log(employeeArray);
                     addEmployee();
                 })
 }
@@ -123,7 +134,9 @@ function getEngineer() {
                     // destructure
                     const { name, id, email, github } = answers
                     this.engineer = new Engineer(name, id, email, github);
-                    console.log(this.engineer.getDescription());
+                    this.engineers.push(this.engineer);
+                    console.log(this.engineer.getRole());
+                    console.log(employeeArray);
                     addEmployee();
                 })
 }
